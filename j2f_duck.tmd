@@ -4,7 +4,7 @@
 	// Plane: Grumman J2F Duck
 	// Compilation: krzysk(at)wp.pl
 	// 3D model by klallo http://www.turbosquid.com/3d-models/grumman-j2f-max-free/300052
-	// Date: Tue Mar 17 2015; Mar 2019
+	// Date: Tue Mar 17 2015; Mar 7 2019
 	//-------------------------------------
      
     <[modelmanager][][]
@@ -17,7 +17,7 @@
                 <[string8][Airspeed][AirspeedIndicator.IndicatedAirspeed]>
                 <[string8][BrakePosition][LeftBrakeInput.Output]>
                 <[string8][GearPosition][GearInput.Output]>
-                <[tmvector3d][LookAtPosition][ 0.8 0.0 0.2 ]>
+                <[tmvector3d][LookAtPosition][ 0.0 0.0 0.0 ]>
             >
 
             // Cameras
@@ -64,10 +64,11 @@
             >
 
             // Rigidbodies
-
+			// mass: 2882.1 ( 0.005 0.000 -0.360 )
+			
             <[rigidbody][Fuselage][]
                 <[float64][Mass][2304.9]>
-                <[tmvector3d][InertiaLength][5.114900 1.411904 2.291400]>
+                <[tmvector3d][InertiaLength][5.1149 1.4119 2.2914]>
                 <[tmvector3d][R0][0.0 0.0 -0.50]>
                 <[tmmatrix3d][B0][1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0]>
             >
@@ -624,7 +625,6 @@
                 <[float64][PropwashOmega][4.0]>
             >
 
-
             // Control Inputs
 
             <[input_default][ThrottleInput][]
@@ -682,8 +682,9 @@
                 <[string8][Input][ServoGearSequence.Output]>
                 <[string8][Message][Aircraft.Gear]>
             >
-            <[input_default][HookInput][]
-                <[string8][Input][Controls.HookRelease]>
+            <[input_binary][HookInput][]
+                <[string8][Input][Controls.Flaps]>
+                <[float64][Value][0.0]>
             >		
             <[input_default][BrakeInput][]
                 <[string8][Input][Controls.WheelBrake]>
@@ -757,16 +758,26 @@
 
             // Servos
 
-            <[servolinear][ServoCanopy][]
+            <[servolinear][CanopyAirspeed][]
+                <[string8][Input][AirspeedIndicator.IndicatedAirspeed]>
+                <[float64][OutputSpeed][0.5]>
+                <[float64][Position][0.0]>
+                <[float64array][InputPosition][ 61.0 62.0 ]>
+                <[float64array][OutputPosition][ 0.0 1.0 ]>
+            >			
+            <[servolinear][CanopyTemperature][]
                 <[string8][Input][TemperatureSensor.Temperature]>
                 <[float64][OutputSpeed][0.5]>
                 <[float64][Position][0.0]>
                 <[float64array][InputPosition][ 284.16 284.17 ]>
                 <[float64array][OutputPosition][ 1.0 0.0 ]>
             >
+            <[maximum][ServoCanopy][]
+                <[string8][Inputs][ CanopyAirspeed.Output CanopyTemperature.Output ]>
+            >
             <[output_free][ServoCanopyOutput][]
                 <[string8][Input][ServoCanopy.Output]>
-            >
+            >			
             <[servoclassic][ServoHook][]
                 <[string8][Input][HookInput.Output]>
                 <[float64][Speed][0.5]>
@@ -1033,7 +1044,7 @@
                 <[string8][Input][DriveShaft.GetRotationSpeed]>
             >
             <[product][NormalizedPropellerSpeed][]
-                <[string8][Inputs][ DriveShaft.RotationSpeed 0.00641 ]>  // = 1/RatedRotationSpeed 
+                <[string8][Inputs][ DriveShaft.RotationSpeed 0.004348 ]>
             >
             <[sender][SenderPower][]
                 <[string8][Input][NormalizedPropellerSpeed.Output]>
@@ -1414,7 +1425,7 @@
                 <[string8][InputPitch][PitchIgnition.Output]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][VelocityID][Fuselage.V]>
-                <[string8][SoundFile][starter.wav]>
+                <[string8][SoundFile][engstart.wav]>
                 <[bool][External][false]>
             >
             <[sound_multi][IgnitionSoundExt][]
@@ -1423,7 +1434,7 @@
                 <[string8][InputPitch][PitchIgnition.Output]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][VelocityID][Fuselage.V]>
-                <[string8][SoundFile][starter.wav]>
+                <[string8][SoundFile][engstart.wav]>
                 <[bool][Internal][false]>
             >
 
@@ -1452,14 +1463,14 @@
                 <[string8][InputPitch][RPMPitchIdle.Output]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][VelocityID][Fuselage.V]>
-                <[string8][SoundFile][turboprop1.wav]>
+                <[string8][SoundFile][idle.wav]>
             >
             <[soundloop][RPMRunLoopInt][]
                 <[string8][InputVolume][RPMVolumeRun.Output]>
                 <[string8][InputPitch][RPMPitchRun.Output]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][VelocityID][Fuselage.V]>
-                <[string8][SoundFile][turboprop1.wav]>
+                <[string8][SoundFile][wasp.wav]>
                 <[bool][External][false]>
             >
             <[soundloop][RPMRunLoopExt][]
@@ -1467,7 +1478,7 @@
                 <[string8][InputPitch][RPMPitchRun.Output]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][VelocityID][Fuselage.V]>
-                <[string8][SoundFile][turboprop1.wav]>
+                <[string8][SoundFile][wasp.wav]>
                 <[bool][Internal][false]>
             >
 
