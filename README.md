@@ -4,4 +4,4 @@ The Grumman J2F Duck (company designation G-15) was an American single-engine am
 Made by Krzysztof Kaniewski, 3D model by klallo 
 http://www.turbosquid.com/3d-models/grumman-j2f-max-free/300052
 
-Note that there is no 3D cockpit!
+Note that model has no 3D cockpit!
