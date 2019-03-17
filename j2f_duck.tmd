@@ -340,8 +340,8 @@
                 <[float64][StationY][ 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 ]>
                 <[float64][StationZ][ -1.4695 -1.6423 -1.7058 -1.7293 -1.5098 -1.4211 -1.3928 -1.1716 -1.0167 ]>
                 <[float64][StationWidth][ 0.2130 1.1486 1.4166 1.4998 1.4998 1.4672 1.4468 1.1746 0.5100 ]>
-                <[float64][StationHeight][ 0.0100 0.5027 0.8684 0.9154 1.1979 1.2352 1.1785 0.7361 0.4864 ]>
-                <[uint32][StationShape][ 1 1 1 1 1 1 1 1 1 ]>
+                <[float64][StationHeight][ 0.01 0.5027 0.8684 0.9154 1.1979 1.2352 1.1785 0.7361 0.4864 ]>
+                <[uint32][StationShape][ 0 0 0 0 1 1 1 1 1 ]>
                 <[float64][Cdx][ 0.15 ]>
                 <[float64][Cdy][ 1.0 ]>
                 <[float64][Cdz][ 1.0 ]>
@@ -1296,7 +1296,7 @@
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[uint32][AngleID][Propeller.RotationAngle]> 
-                <[tmvector3d][Axis][-1.0 0.0 0.0]>
+                <[tmvector3d][Axis][1.0 0.0 0.0]>
                 <[tmvector3d][Pivot][2.645 -0.001 0.001]>
             >
             <[graphics_propeller_blade][PropellerDiscBlades][]
