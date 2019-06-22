@@ -4,13 +4,13 @@
         <[vec32array][ContactSpheres][ (-4.153 0.0 -1.189 0.087) (0.662 -1.218 -2.02 0.365) (0.662 1.218 -2.02 0.365) ]>
         <[string8][DisplayName][Grumman J2F Duck]>
         <[string8][DescriptionTextEN][The Grumman J2F Duck (company designation G-15) was an American single-engine amphibious biplane. It was used by each major branch of the U.S. armed forces from the mid-1930s until just after World War II, primarily for utility and air-sea rescue duties. It was also used by the Argentine Navy, who took delivery of their first Duck in 1937. After the war, J2F Ducks saw service with independent civilian operators, as well as the armed forces of Colombia and Mexico.
-		Made by Krzysztof Kaniewski, 3D model by klallo (Note that there is no 3D cockpit!)]>
+For Aerofly FS2 made by Krzysztof Kaniewski, 3D model by klallo (Note that there is no 3D cockpit!)]>
 		<[float64][WingSpan][11.9]>
 		<[float64][Mass][2485]>
 		<[float64][MaximumSpeed][82.0]>
 		<[float64][MinimumSpeed][30.2]>
         <[float64][ApproachSpeed][33.3]>
-        <[float64][CruiseSpeed]  [55.6]>
+        <[float64][CruiseSpeed][55.6]>
 		<[tmvector2d][NormalSpeedRange][ 30.2 67.0 ]>
 		<[tmvector2d][CautionSpeedRange][ 67.0 82.0 ]>
 		<[tmvector2d][FlapSpeedRange][ 0.0 0.0 ]>
